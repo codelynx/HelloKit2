@@ -6,19 +6,41 @@
 	objectVersion = 55;
 	objects = {
 
+/* Begin PBXAggregateTarget section */
+		31EA09FF28BF175400D06887 /* xcframework */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = 31EA0A0028BF175400D06887 /* Build configuration list for PBXAggregateTarget "xcframework" */;
+			buildPhases = (
+				31EA0A0528BF177300D06887 /* ShellScript */,
+			);
+			dependencies = (
+				31EA0A0428BF176500D06887 /* PBXTargetDependency */,
+			);
+			name = xcframework;
+			productName = xcframework;
+		};
+/* End PBXAggregateTarget section */
+
 /* Begin PBXBuildFile section */
 		31EA09F228BF04CF00D06887 /* HelloKit2.h in Headers */ = {isa = PBXBuildFile; fileRef = 31EA09F128BF04CF00D06887 /* HelloKit2.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		31EA09F728BF04EA00D06887 /* SwiftyHello.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31EA09F628BF04EA00D06887 /* SwiftyHello.swift */; };
-		31EA09FC28BF05C300D06887 /* ObjcHello.h in Headers */ = {isa = PBXBuildFile; fileRef = 31EA09FA28BF05C300D06887 /* ObjcHello.h */; };
-		31EA09FD28BF05C300D06887 /* ObjcHello.m in Sources */ = {isa = PBXBuildFile; fileRef = 31EA09FB28BF05C300D06887 /* ObjcHello.m */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		31EA0A0328BF176500D06887 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 31EA09E328BF04A000D06887 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 31EA09ED28BF04CF00D06887;
+			remoteInfo = HelloKit2;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		31EA09EE28BF04CF00D06887 /* HelloKit2.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = HelloKit2.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		31EA09F128BF04CF00D06887 /* HelloKit2.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HelloKit2.h; sourceTree = "<group>"; };
 		31EA09F628BF04EA00D06887 /* SwiftyHello.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftyHello.swift; sourceTree = "<group>"; };
-		31EA09FA28BF05C300D06887 /* ObjcHello.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ObjcHello.h; sourceTree = "<group>"; };
-		31EA09FB28BF05C300D06887 /* ObjcHello.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ObjcHello.m; sourceTree = "<group>"; };
+		31EA09FE28BF09B000D06887 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -35,6 +57,7 @@
 		31EA09E228BF04A000D06887 = {
 			isa = PBXGroup;
 			children = (
+				31EA09FE28BF09B000D06887 /* README.md */,
 				31EA09F028BF04CF00D06887 /* HelloKit2 */,
 				31EA09EF28BF04CF00D06887 /* Products */,
 			);
@@ -53,8 +76,6 @@
 			children = (
 				31EA09F128BF04CF00D06887 /* HelloKit2.h */,
 				31EA09F628BF04EA00D06887 /* SwiftyHello.swift */,
-				31EA09FA28BF05C300D06887 /* ObjcHello.h */,
-				31EA09FB28BF05C300D06887 /* ObjcHello.m */,
 			);
 			path = HelloKit2;
 			sourceTree = "<group>";
@@ -67,7 +88,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				31EA09F228BF04CF00D06887 /* HelloKit2.h in Headers */,
-				31EA09FC28BF05C300D06887 /* ObjcHello.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -105,6 +125,9 @@
 						CreatedOnToolsVersion = 13.4.1;
 						LastSwiftMigration = 1340;
 					};
+					31EA09FF28BF175400D06887 = {
+						CreatedOnToolsVersion = 13.4.1;
+					};
 				};
 			};
 			buildConfigurationList = 31EA09E628BF04A000D06887 /* Build configuration list for PBXProject "HelloKit2" */;
@@ -121,6 +144,7 @@
 			projectRoot = "";
 			targets = (
 				31EA09ED28BF04CF00D06887 /* HelloKit2 */,
+				31EA09FF28BF175400D06887 /* xcframework */,
 			);
 		};
 /* End PBXProject section */
@@ -135,17 +159,44 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		31EA0A0528BF177300D06887 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "rm -r build\nxcodebuild archive -project HelloKit2.xcodeproj -scheme HelloKit2 -destination 'generic/platform=iOS' -archivePath \"build/iphoneos/HelloKit2\"\nxcodebuild archive -project HelloKit2.xcodeproj -scheme HelloKit2 -destination 'generic/platform=iOS Simulator' -archivePath 'build/iphonesimulator/HelloKit2'\nxcodebuild -create-xcframework -framework build/iphoneos/HelloKit2.xcarchive/Products/Library/Frameworks/HelloKit2.framework -framework build/iphonesimulator/HelloKit2.xcarchive/Products/Library/Frameworks/HelloKit2.framework -output 'build/HelloKit2.xcframework'\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		31EA09EA28BF04CF00D06887 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				31EA09FD28BF05C300D06887 /* ObjcHello.m in Sources */,
 				31EA09F728BF04EA00D06887 /* SwiftyHello.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		31EA0A0428BF176500D06887 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 31EA09ED28BF04CF00D06887 /* HelloKit2 */;
+			targetProxy = 31EA0A0328BF176500D06887 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		31EA09E728BF04A000D06887 /* Debug */ = {
@@ -164,6 +215,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				BUILD_LIBRARY_FOR_DISTRIBUTION = YES;
+				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
@@ -233,7 +286,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.yoshikawa.kazunari.HelloKit2;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
+				SKIP_INSTALL = NO;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -248,6 +301,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				BUILD_LIBRARY_FOR_DISTRIBUTION = YES;
+				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
@@ -310,7 +365,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.yoshikawa.kazunari.HelloKit2;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
+				SKIP_INSTALL = NO;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
@@ -319,6 +374,24 @@
 				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		31EA0A0128BF175400D06887 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = HVUXZ98WB9;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		31EA0A0228BF175400D06887 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = HVUXZ98WB9;
+				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
 		};
@@ -339,6 +412,15 @@
 			buildConfigurations = (
 				31EA09F428BF04CF00D06887 /* Debug */,
 				31EA09F528BF04CF00D06887 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		31EA0A0028BF175400D06887 /* Build configuration list for PBXAggregateTarget "xcframework" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				31EA0A0128BF175400D06887 /* Debug */,
+				31EA0A0228BF175400D06887 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

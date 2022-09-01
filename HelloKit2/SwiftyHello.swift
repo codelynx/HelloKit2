@@ -8,7 +8,9 @@
 import Foundation
 
 open class SwiftyHello {
-    func hello() {
+	public init() {
+	}
+    public func hello() {
 		print("Hello from Swift")
     }
 }
